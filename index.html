@@ -71,7 +71,9 @@
  .nav{position:fixed;top:35px;left:0;right:0;z-index:50;transition:.3s;padding:20px 0}
  .nav.scrolled{top:0;background:rgba(23,17,12,.97);padding:12px 0;box-shadow:0 4px 24px rgba(0,0,0,.35)}
  .nav-inner{display:flex;align-items:center;justify-content:space-between}
- .brand{font-family:var(--dt);font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:.5px}
+ .brand{display:flex;align-items:center;gap:10px;font-family:var(--dt);font-weight:800;font-size:1.45rem;color:#fff;letter-spacing:.5px}
+ .mark{width:38px;height:38px;border-radius:50%;background:var(--jaune);color:var(--rouge);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+ .mark svg{width:22px;height:22px}
  .brand b{color:var(--jaune)}
  .nav-links{display:flex;align-items:center;gap:26px}
  .nav-links a{color:rgba(255,255,255,.82);font-size:.85rem;font-weight:500;transition:color .2s}
@@ -225,7 +227,7 @@
 
  <nav class="nav" id="nav">
  <div class="wrap nav-inner">
- <a href="#accueil" class="brand">Friterie <b>Universo</b></a>
+ <a href="#accueil" class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9c0-3.3 4-5.5 9-5.5s9 2.2 9 5.5"/><line x1="3.5" y1="12.5" x2="20.5" y2="12.5"/><path d="M4 16h16c0 2-1.5 3.5-3.5 3.5H7.5C5.5 19.5 4 18 4 16z"/></svg></span>Friterie <b>Universo</b></a>
  <div class="nav-links">
  <a href="#maison">La maison</a>
  <a href="#carte">La carte</a>
@@ -510,7 +512,7 @@
  <div class="wrap">
  <div class="f-grid">
  <div>
- <a href="#accueil" class="brand">Friterie <b>Universo</b></a>
+ <a href="#accueil" class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9c0-3.3 4-5.5 9-5.5s9 2.2 9 5.5"/><line x1="3.5" y1="12.5" x2="20.5" y2="12.5"/><path d="M4 16h16c0 2-1.5 3.5-3.5 3.5H7.5C5.5 19.5 4 18 4 16z"/></svg></span>Friterie <b>Universo</b></a>
  <p>Friterie à Marly (59770). Smash burgers, américains XXL et frites maison au double bain. Sur place ou en livraison Uber Eats.</p>
  </div>
  <div>
