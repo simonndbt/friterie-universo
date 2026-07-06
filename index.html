@@ -137,20 +137,16 @@
  .menu-meta{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;flex-wrap:wrap}
  .menu-meta #count{font-size:.85rem;color:var(--gris-f);font-weight:600}
  .reset{background:none;border:none;color:var(--rouge);font-family:var(--db);font-weight:600;font-size:.85rem;cursor:pointer;text-decoration:underline;padding:6px}
- .dishes{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;margin-top:26px}
- .dish{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 20px rgba(23,17,12,.06)}
+ .dishes{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:0 46px;margin-top:24px}
+ .dish{padding:13px 2px;border-bottom:1px dotted var(--line)}
  .dish[hidden]{display:none}
- .dish-img{height:170px;overflow:hidden}
- .dish-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
- .dish:hover .dish-img img{transform:scale(1.05)}
- .dish-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
  .dish-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
- .dish-top h3{font-family:var(--dt);font-weight:700;font-size:1.18rem;line-height:1.12}
- .dish-prix{font-family:var(--dt);font-weight:700;font-size:1.18rem;color:var(--rouge);white-space:nowrap;font-variant-numeric:tabular-nums}
- .dish-desc{color:var(--gris-f);font-size:.9rem;margin:8px 0 14px;flex:1}
- .dish-tags{display:flex;flex-wrap:wrap;gap:6px}
- .dtag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:50px;background:var(--creme2);color:var(--gris-f)}
- .dtag.v{background:#e7f0dd;color:#4d6b2f}
+ .dish-top h3{font-family:var(--dt);font-weight:400;font-size:1.24rem;letter-spacing:.5px}
+ .dish-prix{font-family:var(--dt);font-weight:400;font-size:1.24rem;color:var(--rouge);white-space:nowrap;font-variant-numeric:tabular-nums}
+ .dish-desc{color:var(--gris-f);font-size:.85rem;margin-top:3px}
+ .dish-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+ .dtag{font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:50px;background:var(--creme2);color:var(--gris-f)}
+ .dtag.pop{background:var(--jaune);color:var(--noir)}
  .dtag.top{background:var(--rouge);color:#fff}
  .noresult{text-align:center;color:var(--gris-f);padding:40px 0;font-size:1.05rem}
  .menu-note{text-align:center;color:var(--gris-f);font-size:.84rem;margin-top:26px}
@@ -209,6 +205,24 @@
  .f-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;color:var(--gris-f)}
  @media(max-width:760px){.f-grid{grid-template-columns:1fr;gap:30px}}
 
+ .hero-logo{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+ .mark-lg{width:56px;height:56px}
+ .mark-lg svg{width:32px;height:32px}
+ .hero-name{font-family:var(--dt);font-size:1.7rem;color:#fff;letter-spacing:1px}
+ .avis{padding:96px 0;background:var(--creme)}
+ .avis-head{text-align:center;margin-bottom:44px}
+ .avis-head h2{font-family:var(--dt);font-weight:700;font-size:clamp(2.4rem,5vw,3.5rem);line-height:.96}
+ .avis-head h2 span{color:var(--rouge)}
+ .avis-head .sous{color:var(--gris-f);margin-top:8px}
+ .avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+ .acard{background:#fff;border:1px solid var(--line);border-radius:8px;padding:28px}
+ .acard .st{color:var(--rouge);font-size:.8rem;font-weight:700;letter-spacing:.1em}
+ .acard .tx{font-size:1.02rem;line-height:1.55;color:#3f362a;margin:14px 0 18px}
+ .acard .au{display:flex;align-items:center;gap:11px}
+ .acard .av{width:40px;height:40px;border-radius:50%;background:var(--rouge);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+ .acard .nm{font-weight:700;font-size:.9rem}
+ .acard .dt{font-size:.76rem;color:var(--gris-f)}
+ @media(max-width:860px){.avis-grid{grid-template-columns:1fr}}
  #top{position:fixed;right:24px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--jaune);color:var(--noir);border:none;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;z-index:40}
  #top.show{opacity:1;pointer-events:all}
 
@@ -248,9 +262,10 @@
 
  <header class="hero" id="accueil">
  <div class="wrap hero-inner">
- <p class="kicker j">Friterie à Marly, 59770</p>
+ <div class="hero-logo reveal"><span class="mark mark-lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9c0-3.3 4-5.5 9-5.5s9 2.2 9 5.5"/><line x1="3.5" y1="12.5" x2="20.5" y2="12.5"/><path d="M4 16h16c0 2-1.5 3.5-3.5 3.5H7.5C5.5 19.5 4 18 4 16z"/></svg></span><span class="hero-name">Friterie Universo</span></div>
+ <p class="kicker j">Marly, 59770</p>
  <h1>Smash burgers <span class="j">et frites maison</span><span class="sub">américains XXL, grillades et bonne humeur</span></h1>
- <p>On smashe le steak à la plaque, on taille les frites sur place et on cuit tout au double bain. Rien de surgelé, que du fait maison. Sur place, à emporter, ou livré par Uber Eats.</p>
+ <p>On smashe les steaks à la plaque, on taille les frites sur place et on les cuit au gras de bœuf. Rien de surgelé, que du fait maison. Sur place, à emporter, ou livré par Uber Eats.</p>
  <div class="hero-ctas">
  <a href="https://www.ubereats.com/fr-en/store/friterie-universo/9TeEW9NnXT2qyaZnPTnKbQ" target="_blank" rel="noopener" class="btn btn-j">Commander sur Uber Eats</a>
  <a href="#carte" class="btn btn-ghost">Voir la carte</a>
@@ -261,8 +276,8 @@
 
  <div class="marquee">
  <div class="marquee-track">
- <span>Smash Burger</span><span>Américains XXL</span><span>Frites maison double bain</span><span>Grillades</span><span>Sur Uber Eats</span><span>Marly 59770</span>
- <span>Smash Burger</span><span>Américains XXL</span><span>Frites maison double bain</span><span>Grillades</span><span>Sur Uber Eats</span><span>Marly 59770</span>
+ <span>Smash Burger</span><span>Américains XXL</span><span>Frites au gras de bœuf</span><span>Grillades</span><span>Sur Uber Eats</span><span>Marly 59770</span>
+ <span>Smash Burger</span><span>Américains XXL</span><span>Frites au gras de bœuf</span><span>Grillades</span><span>Sur Uber Eats</span><span>Marly 59770</span>
  </div>
  </div>
 
@@ -272,7 +287,7 @@
  <div class="story-content reveal">
  <p class="kicker">La maison</p>
  <h2>La friterie qui <span class="red">smashe</span></h2>
- <p>Nous, c'est le fait maison ou rien. Les patates, on les taille ici et on les cuit en deux bains, pour que ça croustille vraiment. Le smash, on écrase le steak sur la plaque brûlante : bords croustillants, cœur qui coule. Pas de secret, juste du boulot.</p>
+ <p>Nous, c'est le fait maison ou rien. Les patates, on les taille ici et on les cuit au gras de bœuf, à l'ancienne, pour que ça croustille vraiment. Le smash, on écrase les steaks sur la plaque brûlante, Cheddar dessus. Pas de secret, juste du boulot.</p>
  <p>Les américains, on les fait pas à moitié : fricadelle XXL maison, cervella grillée, grillade, et les sauces qui vont avec. On mange bien, on mange large, et ça reste correct niveau prix.</p>
  <p>Sur place, à emporter ou en livraison, on cale tout le monde.</p>
  </div>
@@ -284,9 +299,9 @@
 
  <div class="facts">
  <div class="wrap facts-row">
- <span><b>N°1</b> le Smash Burger</span>
+ <span><b>4,8</b> sur 5 sur Google</span>
  <span class="dot">·</span>
- <span><b>2 bains</b> pour les frites maison</span>
+ <span><b>N°1</b> des friteries de Marly</span>
  <span class="dot">·</span>
  <span><b>Uber Eats</b> livraison à Marly</span>
  </div>
@@ -308,11 +323,14 @@
  </label>
  <div class="filters" role="group" aria-label="Filtres de la carte">
  <button class="fbtn" data-cat="tout" aria-pressed="true">Tout</button>
- <button class="fbtn" data-cat="burgers" aria-pressed="false">Burgers</button>
+ <button class="fbtn" data-cat="hamburgers" aria-pressed="false">Hamburgers</button>
  <button class="fbtn" data-cat="americains" aria-pressed="false">Américains</button>
- <button class="fbtn" data-cat="frites" aria-pressed="false">Frites & Snacks</button>
+ <button class="fbtn" data-cat="sandwichs" aria-pressed="false">Sandwichs</button>
+ <button class="fbtn" data-cat="viandes" aria-pressed="false">Viandes seules</button>
+ <button class="fbtn" data-cat="frites" aria-pressed="false">Frites</button>
+ <button class="fbtn" data-cat="desserts" aria-pressed="false">Desserts</button>
  <button class="fbtn" data-cat="boissons" aria-pressed="false">Boissons</button>
- <button class="fbtn diet" data-diet="v" aria-pressed="false">Végétarien</button>
+ <button class="fbtn" data-cat="sauces" aria-pressed="false">Sauces</button>
  </div>
  <div class="menu-meta">
  <span id="count" aria-live="polite">Toute la carte</span>
@@ -322,110 +340,102 @@
 
  <div class="dishes" id="dishes">
 
- <article class="dish" data-cat="burgers" data-v="0" data-search="smash burger double steak cheddar oignons caramelises sauce maison brioche signature">
- <div class="dish-img"><img class="ph" src="images/burger.jpg" alt="Smash Burger" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Smash Burger</h3><span class="dish-prix">12,80 €</span></div>
- <p class="dish-desc">Double steak écrasé, cheddar fondu, oignons caramélisés, sauce maison sur brioche toastée.</p>
- <div class="dish-tags"><span class="dtag top">Le N°1</span></div></div>
- </article>
+ <article class="dish" data-cat="hamburgers" data-search=""><div class="dish-top"><h3>Smash burger</h3><span class="dish-prix">15,55 €</span></div><p class="dish-desc">Pain bun's, 2 steaks hachés smashés, 2 tranches de Cheddar, oignon.</p><div class="dish-tags"><span class="dtag top">N°2</span></div></article>
+ <article class="dish" data-cat="hamburgers" data-search=""><div class="dish-top"><h3>Burger nono</h3><span class="dish-prix">15,55 €</span></div><p class="dish-desc">Pain bun's, steak haché, galette de pommes de terre, bacon, Cheddar, salade, tomates, oignons.</p></article>
+ <article class="dish" data-cat="hamburgers" data-search=""><div class="dish-top"><h3>Chicken burger</h3><span class="dish-prix">15,55 €</span></div><p class="dish-desc">Pain bun's, poulet pané, bacon, Cheddar, salade, tomates, oignons.</p></article>
+ <article class="dish" data-cat="hamburgers" data-search="maroilles"><div class="dish-top"><h3>Ch'ti burger</h3><span class="dish-prix">15,55 €</span></div><p class="dish-desc">Pain bun's, steak haché, galette de pommes de terre, Maroilles chaud, salade, tomates, oignons.</p></article>
 
- <article class="dish" data-cat="burgers" data-v="0" data-search="burger mexicano jalapenos guacamole cheddar sauce piquante salade">
- <div class="dish-img"><img class="ph" src="images/burger2.jpg" alt="Burger Mexicano" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Burger Mexicano</h3><span class="dish-prix">11,50 €</span></div>
- <p class="dish-desc">Steak haché, jalapeños, guacamole, cheddar, sauce piquante, salade croquante.</p>
- <div class="dish-tags"><span class="dtag">Burger</span></div></div>
- </article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain mexicanos</h3><span class="dish-prix">12,40 €</span></div><p class="dish-desc">Baguette, Mexicanos, frites.</p><div class="dish-tags"><span class="dtag top">N°1</span></div></article>
+ <article class="dish" data-cat="americains" data-search="cervelas"><div class="dish-top"><h3>Américain cervella</h3><span class="dish-prix">12,40 €</span></div><p class="dish-desc">Baguette, cervelas, frites et sauce au choix.</p><div class="dish-tags"><span class="dtag top">N°3</span></div></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain fricadelle</h3><span class="dish-prix">10,80 €</span></div><p class="dish-desc">Baguette, fricadelle, frites et sauce au choix.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain fricadelle XXL</h3><span class="dish-prix">13,20 €</span></div><p class="dish-desc">Baguette, fricadelle XXL, frites.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain grizzly</h3><span class="dish-prix">14,80 €</span></div><p class="dish-desc">Baguette, Grizzly, frites.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain saucisse</h3><span class="dish-prix">10,80 €</span></div><p class="dish-desc">Baguette, saucisse, frites.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain merguez</h3><span class="dish-prix">10,80 €</span></div><p class="dish-desc">Baguette, merguez, frites.</p></article>
+ <article class="dish" data-cat="americains" data-search="boeuf"><div class="dish-top"><h3>Américain brochette de bœuf</h3><span class="dish-prix">14,80 €</span></div><p class="dish-desc">Baguette, brochette de bœuf, frites et sauce au choix.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain brochette de poulet</h3><span class="dish-prix">14,80 €</span></div><p class="dish-desc">Baguette, brochette de poulet, frites et sauce au choix.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain poulycroc</h3><span class="dish-prix">12,40 €</span></div><p class="dish-desc">Baguette, Poulycroc (bouchées de poulet pané), frites.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain nuggets</h3><span class="dish-prix">12,40 €</span></div><p class="dish-desc">Baguette, nuggets par 4, frites.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain steak haché</h3><span class="dish-prix">13,95 €</span></div><p class="dish-desc">Baguette, steak haché, frites et sauce au choix.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain filet américain</h3><span class="dish-prix">13,95 €</span></div><p class="dish-desc">Baguette, filet américain, bœuf cru finement assaisonné.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain thon</h3><span class="dish-prix">12,40 €</span></div><p class="dish-desc">Baguette, thon, frites et sauce au choix.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain surimi</h3><span class="dish-prix">12,40 €</span></div><p class="dish-desc">Baguette, surimi, frites et sauce au choix.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain jambon</h3><span class="dish-prix">10,80 €</span></div><p class="dish-desc">Baguette, jambon, frites.</p></article>
+ <article class="dish" data-cat="americains" data-search=""><div class="dish-top"><h3>Américain pourpettes</h3><span class="dish-prix">13,95 €</span></div><p class="dish-desc">Baguette, pourpettes, frites.</p></article>
 
- <article class="dish" data-cat="burgers" data-v="0" data-search="burger classique steak boeuf fromage salade tomate oignon cornichon sauce">
- <div class="dish-img"><img class="ph" src="images/burger3.jpg" alt="Burger Classique" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Burger Classique</h3><span class="dish-prix">9,90 €</span></div>
- <p class="dish-desc">Steak bœuf, fromage, salade, tomate, oignon, cornichon, sauce burger.</p>
- <div class="dish-tags"><span class="dtag">Burger</span></div></div>
- </article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich fricadelle</h3><span class="dish-prix">7,05 €</span></div><p class="dish-desc">Fricadelle (saucisse de viande hachée) en sandwich.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich fricadelle XXL</h3><span class="dish-prix">9,85 €</span></div><p class="dish-desc">Sandwich garni d'une fricadelle XXL, format généreux.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search="cervelas"><div class="dish-top"><h3>Sandwich cervella</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">Saucisse de cervelas en sandwich.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich mexicanos</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">Baguette, Mexicanos.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich grizzly</h3><span class="dish-prix">11,30 €</span></div><p class="dish-desc">Baguette, Grizzly, frites.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich saucisse</h3><span class="dish-prix">7,05 €</span></div><p class="dish-desc">Sandwich garni d'une saucisse.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich merguez</h3><span class="dish-prix">7,05 €</span></div><p class="dish-desc">Saucisse merguez dans une baguette.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search="boeuf"><div class="dish-top"><h3>Sandwich brochette de bœuf</h3><span class="dish-prix">11,30 €</span></div><p class="dish-desc">Morceaux de bœuf en brochette, servis dans un pain.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich brochette de poulet</h3><span class="dish-prix">11,30 €</span></div><p class="dish-desc">Brochette de poulet, sauce au choix.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich nuggets</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">4 pièces.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich poulycroc</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">Baguette, Poulycroc (bouchées de poulet pané).</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich steak haché</h3><span class="dish-prix">10,10 €</span></div><p class="dish-desc">Baguette, steak haché.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich filet américain</h3><span class="dish-prix">10,10 €</span></div><p class="dish-desc">Filet américain, bœuf cru finement haché et assaisonné.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich thon</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">Thon et sauce au choix.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich surimi</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">Pain garni de bâtonnets de surimi.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich jambon</h3><span class="dish-prix">7,05 €</span></div><p class="dish-desc">Baguette garnie de tranches de jambon.</p></article>
+ <article class="dish" data-cat="sandwichs" data-search=""><div class="dish-top"><h3>Sandwich pourpettes</h3><span class="dish-prix">10,10 €</span></div><p class="dish-desc">5 pièces.</p></article>
 
- <article class="dish" data-cat="burgers" data-v="0" data-search="burger poulet croustillant escalope panee ranch coleslaw pickles">
- <div class="dish-img"><img class="ph" src="images/poulet.jpg" alt="Burger Poulet Croustillant" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Burger Poulet Croustillant</h3><span class="dish-prix">10,50 €</span></div>
- <p class="dish-desc">Escalope de poulet panée, sauce ranch, coleslaw maison, pickles.</p>
- <div class="dish-tags"><span class="dtag">Burger</span></div></div>
- </article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Fricadelle</h3><span class="dish-prix">4,55 €</span></div><p class="dish-desc">Fricadelle, spécialité des friteries du Nord.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Fricadelle XXL</h3><span class="dish-prix">7,05 €</span></div><p class="dish-desc">Fricadelle en format XXL.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="viandes" data-search="cervelas"><div class="dish-top"><h3>Cervella</h3><span class="dish-prix">6,05 €</span></div><p class="dish-desc">Cervella, servie seule.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Mexicanos</h3><span class="dish-prix">6,05 €</span></div><p class="dish-desc">Viande assaisonnée, épicée.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Grizzly</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">Brochette de viande panée épicée, oignons, poivrons.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Saucisse</h3><span class="dish-prix">4,55 €</span></div><p class="dish-desc">Saucisse à l'unité.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Merguez</h3><span class="dish-prix">4,55 €</span></div><p class="dish-desc">Saucisse merguez, servie seule.</p></article>
+ <article class="dish" data-cat="viandes" data-search="boeuf"><div class="dish-top"><h3>Brochette de bœuf</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">Morceaux de bœuf sur brochette, oignons.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Brochette de poulet</h3><span class="dish-prix">8,50 €</span></div><p class="dish-desc">Morceaux de poulet sur brochette, oignons.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Poulycroc</h3><span class="dish-prix">6,05 €</span></div><p class="dish-desc">Bâtonnets de poulet pané.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Nuggets</h3><span class="dish-prix">6,05 €</span></div><p class="dish-desc">4 pièces.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Steak haché</h3><span class="dish-prix">7,65 €</span></div><p class="dish-desc">Pièce de bœuf haché, servie seule.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Filet américain</h3><span class="dish-prix">7,65 €</span></div><p class="dish-desc">Bœuf haché cru assaisonné, façon tartare.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Thon</h3><span class="dish-prix">6,05 €</span></div><p class="dish-desc">Thon servi seul.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Surimi</h3><span class="dish-prix">4,55 €</span></div><p class="dish-desc">Bâtonnets de surimi.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Jambon</h3><span class="dish-prix">4,55 €</span></div><p class="dish-desc">Tranches de jambon, portion seule.</p></article>
+ <article class="dish" data-cat="viandes" data-search=""><div class="dish-top"><h3>Pourpettes</h3><span class="dish-prix">7,65 €</span></div><p class="dish-desc">5 pièces.</p></article>
 
- <article class="dish" data-cat="americains" data-v="0" data-search="americain mexicanos pain hot dog steak sauce mexicaine cheddar jalapenos salade">
- <div class="dish-img"><img class="ph" src="images/burger4.jpg" alt="Américain Mexicanos" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Américain Mexicanos</h3><span class="dish-prix">10,20 €</span></div>
- <p class="dish-desc">Pain hot dog, steak haché, sauce mexicaine, cheddar, jalapeños, salade.</p>
- <div class="dish-tags"><span class="dtag top">Le N°2</span></div></div>
- </article>
+ <article class="dish" data-cat="frites" data-search=""><div class="dish-top"><h3>Petite frites</h3><span class="dish-prix">4,05 €</span></div><p class="dish-desc">Frites fraîches cuites au gras de bœuf.</p></article>
+ <article class="dish" data-cat="frites" data-search=""><div class="dish-top"><h3>Grande frites</h3><span class="dish-prix">6,05 €</span></div><p class="dish-desc">Grande portion de frites fraîches au gras de bœuf.</p></article>
+ <article class="dish" data-cat="frites" data-search="enfant"><div class="dish-top"><h3>Menu enfant</h3><span class="dish-prix">9,85 €</span></div><p class="dish-desc">1 plat au choix, frites, boisson Capri Sun, jouet et sauce au choix.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
 
- <article class="dish" data-cat="americains" data-v="0" data-search="americain fricadelle xxl maison sauce americaine oignons frits cornichons">
- <div class="dish-img"><img class="ph" src="images/saucisse.jpg" alt="Américain Fricadelle XXL" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Américain Fricadelle XXL</h3><span class="dish-prix">10,90 €</span></div>
- <p class="dish-desc">Fricadelle XXL maison, sauce américaine, oignons frits, cornichons.</p>
- <div class="dish-tags"><span class="dtag top">Le N°3</span></div></div>
- </article>
+ <article class="dish" data-cat="desserts" data-search=""><div class="dish-top"><h3>Tiramisu Café</h3><span class="dish-prix">6,35 €</span></div><p class="dish-desc">Dessert italien classique, recette maison.</p></article>
+ <article class="dish" data-cat="desserts" data-search="speculoos"><div class="dish-top"><h3>Tiramisu Spéculoos</h3><span class="dish-prix">6,35 €</span></div><p class="dish-desc">Mascarpone et biscuits spéculoos.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="desserts" data-search=""><div class="dish-top"><h3>Tiramisu Pistache</h3><span class="dish-prix">6,35 €</span></div><p class="dish-desc">Mascarpone à la pistache et biscuits.</p></article>
 
- <article class="dish" data-cat="americains" data-v="0" data-search="americain cervella saucisse grillee sauce moutarde mayo oignons salade">
- <div class="dish-img"><img class="ph" src="images/saucisse.jpg" alt="Américain Cervella" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Américain Cervella</h3><span class="dish-prix">9,80 €</span></div>
- <p class="dish-desc">Saucisse cervella grillée, sauce moutarde mayo, oignons, salade fraîche.</p>
- <div class="dish-tags"><span class="dtag">Américain</span></div></div>
- </article>
+ <article class="dish" data-cat="boissons" data-search=""><div class="dish-top"><h3>Coca-Cola</h3><span class="dish-prix">2,95 €</span></div><p class="dish-desc">33 cl.</p></article>
+ <article class="dish" data-cat="boissons" data-search=""><div class="dish-top"><h3>Sprite</h3><span class="dish-prix">2,95 €</span></div><p class="dish-desc">33 cl.</p></article>
+ <article class="dish" data-cat="boissons" data-search=""><div class="dish-top"><h3>Fanta citron</h3><span class="dish-prix">2,95 €</span></div><p class="dish-desc">33 cl.</p></article>
+ <article class="dish" data-cat="boissons" data-search=""><div class="dish-top"><h3>Fuzetea</h3><span class="dish-prix">2,95 €</span></div><p class="dish-desc">33 cl.</p></article>
+ <article class="dish" data-cat="boissons" data-search=""><div class="dish-top"><h3>Schweppes</h3><span class="dish-prix">2,95 €</span></div><p class="dish-desc">33 cl.</p></article>
+ <article class="dish" data-cat="boissons" data-search=""><div class="dish-top"><h3>Oasis</h3><span class="dish-prix">2,95 €</span></div><p class="dish-desc">33 cl.</p></article>
+ <article class="dish" data-cat="boissons" data-search=""><div class="dish-top"><h3>Eau</h3><span class="dish-prix">2,35 €</span></div><p class="dish-desc">50 cl.</p></article>
+ <article class="dish" data-cat="boissons" data-search="biere"><div class="dish-top"><h3>Kasteel Rouge</h3><span class="dish-prix">9,10 €</span></div><p class="dish-desc">Bière, bouteille.</p><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="boissons" data-search="biere"><div class="dish-top"><h3>Paix Dieu</h3><span class="dish-prix">11,90 €</span></div><p class="dish-desc">Bière, bouteille.</p></article>
+ <article class="dish" data-cat="boissons" data-search="vin"><div class="dish-top"><h3>Vin rouge</h3><span class="dish-prix">15,55 €</span></div><p class="dish-desc">Bouteille.</p></article>
+ <article class="dish" data-cat="boissons" data-search="vin"><div class="dish-top"><h3>Vin blanc</h3><span class="dish-prix">15,55 €</span></div><p class="dish-desc">Bouteille.</p></article>
+ <article class="dish" data-cat="boissons" data-search="vin"><div class="dish-top"><h3>Vin rosé</h3><span class="dish-prix">15,55 €</span></div><p class="dish-desc">Bouteille.</p></article>
 
- <article class="dish" data-cat="americains" data-v="0" data-search="americain grillade piece maison sauce bbq fumee oignons confits fromage fondu">
- <div class="dish-img"><img class="ph" src="images/burger.jpg" alt="Américain Grillade" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Américain Grillade</h3><span class="dish-prix">11,90 €</span></div>
- <p class="dish-desc">Pièce de grillade maison, sauce BBQ fumée, oignons confits, fromage fondu.</p>
- <div class="dish-tags"><span class="dtag">Américain</span></div></div>
- </article>
-
- <article class="dish" data-cat="frites" data-v="1" data-search="frites maison petite fraiches taillees sur place double bain croustillant vegetarien">
- <div class="dish-img"><img class="ph" src="images/frites.jpg" alt="Frites maison" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Frites Maison, petite</h3><span class="dish-prix">3,50 €</span></div>
- <p class="dish-desc">Frites fraîches taillées sur place, cuisson double bain pour un croustillant parfait.</p>
- <div class="dish-tags"><span class="dtag v">Végétarien</span></div></div>
- </article>
-
- <article class="dish" data-cat="frites" data-v="1" data-search="frites maison grande partager grosse faim vegetarien">
- <div class="dish-img"><img class="ph" src="images/frites.jpg" alt="Grande frite maison" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Frites Maison, grande</h3><span class="dish-prix">5,50 €</span></div>
- <p class="dish-desc">La généreuse, parfaite pour partager ou pour les grandes faims.</p>
- <div class="dish-tags"><span class="dtag v">Végétarien</span></div></div>
- </article>
-
- <article class="dish" data-cat="frites" data-v="0" data-search="croquettes maison fromage viande croustillantes snack">
- <div class="dish-img"><img class="ph" src="images/poulet.jpg" alt="Croquettes maison" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Croquettes maison</h3><span class="dish-prix">4,20 €</span></div>
- <p class="dish-desc">Croquettes de fromage ou de viande, croustillantes à souhait.</p>
- <div class="dish-tags"><span class="dtag">Snack</span></div></div>
- </article>
-
- <article class="dish" data-cat="frites" data-v="0" data-search="nuggets poulet dores sauce ketchup mayo bbq snack">
- <div class="dish-img"><img class="ph" src="images/poulet.jpg" alt="Nuggets" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Nuggets, 6 pièces</h3><span class="dish-prix">4,90 €</span></div>
- <p class="dish-desc">Nuggets de poulet dorés, sauce au choix : ketchup, mayo ou BBQ.</p>
- <div class="dish-tags"><span class="dtag">Snack</span></div></div>
- </article>
-
- <article class="dish" data-cat="boissons" data-v="1" data-search="soda canette coca sprite fanta orangina ice tea boisson vegetarien">
- <div class="dish-img"><img class="ph" src="images/boisson.jpg" alt="Sodas" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Soda, canette 33cl</h3><span class="dish-prix">2,00 €</span></div>
- <p class="dish-desc">Coca-Cola, Sprite, Fanta Orange, Orangina, Ice Tea.</p>
- <div class="dish-tags"><span class="dtag v">Végétarien</span></div></div>
- </article>
-
- <article class="dish" data-cat="boissons" data-v="1" data-search="eau minerale plate gazeuse boisson vegetarien">
- <div class="dish-img"><img class="ph" src="images/boisson.jpg" alt="Eau minérale" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Eau minérale, 50cl</h3><span class="dish-prix">1,50 €</span></div>
- <p class="dish-desc">Eau plate ou gazeuse.</p>
- <div class="dish-tags"><span class="dtag v">Végétarien</span></div></div>
- </article>
-
- <article class="dish" data-cat="boissons" data-v="0" data-search="biere pression canette boisson alcool">
- <div class="dish-img"><img class="ph" src="images/boisson.jpg" alt="Bière" loading="lazy"></div>
- <div class="dish-body"><div class="dish-top"><h3>Bière, pression ou canette</h3><span class="dish-prix">dès 2,50 €</span></div>
- <p class="dish-desc">Disponible sur place. À consommer avec modération.</p>
- <div class="dish-tags"><span class="dtag">Boisson</span></div></div>
- </article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Mayonnaise</h3><span class="dish-prix">0,85 €</span></div><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Ketchup</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Américaine</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Andalouse</h3><span class="dish-prix">0,85 €</span></div><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Samouraï</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Poivre</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Piccalilli</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Hannibal</h3><span class="dish-prix">0,85 €</span></div><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Barbecue</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Sauce burger</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Cocktail</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Brazil</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Aïoli</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Curry</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search=""><div class="dish-top"><h3>Tartare</h3><span class="dish-prix">0,85 €</span></div></article>
+ <article class="dish" data-cat="sauces" data-search="maroilles"><div class="dish-top"><h3>Maroilles chaud</h3><span class="dish-prix">1,60 €</span></div><div class="dish-tags"><span class="dtag pop">Populaire</span></div></article>
 
  </div>
  <p class="noresult" id="noresult" hidden>Aucun plat ne correspond. Essayez un autre filtre.</p>
@@ -439,7 +449,7 @@
  <div class="promo-txt">
  <p class="kicker j">La star de la maison</p>
  <h2>Le <span class="j">Smash Burger</span></h2>
- <p>Double steak écrasé sur la plaque, bords bien croustillants, cheddar fondu, oignons caramélisés et sauce maison dans une brioche toastée. C'est notre numéro 1, et c'est pas pour rien.</p>
+ <p>Deux steaks hachés smashés à la plaque, double Cheddar fondu et oignon, dans un pain bun's. L'un des plus commandés de la maison, et c'est pas pour rien.</p>
  <a href="https://www.ubereats.com/fr-en/store/friterie-universo/9TeEW9NnXT2qyaZnPTnKbQ" target="_blank" rel="noopener" class="btn btn-j">Le commander sur Uber Eats</a>
  </div>
  </section>
@@ -457,6 +467,34 @@
  <div class="cell w2 reveal d1"><img class="ph" src="images/burger2.jpg" alt="Burger Universo" loading="lazy"></div>
  </div>
  <p class="menu-note" style="margin-top:16px">Photos d'illustration, à remplacer par les vraies photos de la friterie.</p>
+ </div>
+ </section>
+
+ <!-- AVIS (vrais avis Google) -->
+ <section class="avis" id="avis">
+ <div class="wrap">
+ <div class="avis-head reveal">
+ <p class="kicker">Les avis</p>
+ <h2>4,8 sur 5, <span>n°1 à Marly</span></h2>
+ <p class="sous">Note de 4,8 sur 5 sur Google, première des friteries de Marly.</p>
+ </div>
+ <div class="avis-grid">
+ <div class="acard reveal">
+ <div class="st">5 sur 5</div>
+ <p class="tx">"Super bon et personnel super gentil. Je recommande fortement."</p>
+ <div class="au"><div class="av">B</div><div><div class="nm">Benoit Ego</div><div class="dt">Google</div></div></div>
+ </div>
+ <div class="acard reveal d1">
+ <div class="st">5 sur 5</div>
+ <p class="tx">"Excellente friterie, des portions très généreuses, et la nourriture est très bonne et de qualité."</p>
+ <div class="au"><div class="av">J</div><div><div class="nm">Julien Lefebvre</div><div class="dt">Google</div></div></div>
+ </div>
+ <div class="acard reveal d2">
+ <div class="st">5 sur 5</div>
+ <p class="tx">"Un délice."</p>
+ <div class="au"><div class="av">C</div><div><div class="nm">Celiana Camélia</div><div class="dt">Google</div></div></div>
+ </div>
+ </div>
  </div>
  </section>
 
