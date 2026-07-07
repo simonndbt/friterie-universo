@@ -471,7 +471,7 @@
  </section>
 
  <!-- GALERIE -->
- <section class="galerie">
+ <section class="galerie" id="galerie">
  <div class="wrap">
  <p class="kicker reveal" style="margin-bottom:10px">En images</p>
  <h2 class="reveal">Ça donne <span class="red">faim</span></h2>
@@ -599,7 +599,7 @@
  window.addEventListener('scroll',()=>{const y=window.scrollY;nav.classList.toggle('scrolled',y>40);topBtn.classList.toggle('show',y>700)});
  topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
  const mobile=document.getElementById('mobile');
- document.getElementById('burger').onclick=()=>mobile.classList.toggle('open');
+ document.getElementById('burger').onclick=function(){this.setAttribute('aria-expanded', mobile.classList.toggle('open'));};
  function closeM(){mobile.classList.remove('open')}
  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
